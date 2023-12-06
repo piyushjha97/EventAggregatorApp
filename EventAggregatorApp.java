@@ -67,6 +67,17 @@ public class EventAggregatorApp {
         }
     }
 
+    private static JSONArray readJsonArrayFromFile(String filePath) throws IOException {
+        StringBuilder content = new StringBuilder();
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                content.append(line);
+            }
+        }
+        return new JSONArray(content.toString());
+    }
+
     private static void aggregateEvents(JSONArray events, JSONArray aggregatedData) {
         Map<Integer, Map<String, JSONObject>> userEventSummaries = new HashMap<>();
 
@@ -135,7 +146,6 @@ public class EventAggregatorApp {
         }
         return -1;
     }
-    
 
     private static int findDailySummaryIndex(JSONArray aggregatedData, String date) {
         for (int i = 0; i < aggregatedData.length(); i++) {
@@ -144,17 +154,6 @@ public class EventAggregatorApp {
             }
         }
         return -1;
-    }
-
-    private static JSONArray readJsonArrayFromFile(String filePath) throws IOException {
-        StringBuilder content = new StringBuilder();
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                content.append(line);
-            }
-        }
-        return new JSONArray(content.toString());
     }
 
     private static void writeJsonArrayToFile(JSONArray jsonArray, String filePath) throws IOException {
