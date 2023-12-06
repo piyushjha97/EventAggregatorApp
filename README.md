@@ -40,4 +40,16 @@ If your input.json file contains:
   {"userId": 1, "eventType": "likeReceived", "timestamp": 1672444801},
   // ...
 ]
+```
+
+The output.json may look like this:
+
+```json
+[
+  {"userId": 1, "date": "2023-01-01", "post": 1, "likeReceived": 2},
+  {"userId": 1, "date": "2023-01-02", "post": 1},
+  // ...
+]
+
+
 
