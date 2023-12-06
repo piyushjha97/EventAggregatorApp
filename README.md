@@ -7,8 +7,8 @@ Event Aggregator App is a command-line utility written in Java that reads a list
 To use the Event Aggregator App, follow these steps:
 
 1. **Compile the Code:**
-
-    $javac -cp .:json-20210307.jar EventAggregatorApp.java
+    
+        $javac -cp .:json-20210307.jar EventAggregatorApp.java
 
 2. **Run the App:**
 
